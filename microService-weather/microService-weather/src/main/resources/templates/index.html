@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- 引入 Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Title</title>
+    </head>
+    <body>
+        <div class="container">
+            <h3>四川城市天气预报</h3>
+            <h4>城市：</h4>
+            <select >
+                <option  th:each="Item :${cityList}" th:value="${Item.item}" th:text="${Item.item}">成都</option>
+            </select>
+
+
+                    <h4 >今日天气：</h4>
+                    <div class="row">
+                        <p>今日温度：<span th:text="${weatherData.today.temperature}"></span></p>
+                    </div>
+                    <div class="row"><p>今日天气: <span th:text="${weatherData.today.weather}"></span></p></div>
+                    <div class="row"><p>今日风向：<span th:text="${weatherData.today.wind}"></span></p></div>
+                    <div class="row"><p>穿衣指数：<span th:text="${weatherData.today.dressing_index}"></span></p></div>
+                    <div class="row"><p>穿衣建议：<span th:text="${weatherData.today.dressing_advice}"></span></p></div>
+                    <div class="row"><p>紫外线强度: <span th:text="${weatherData.today.uv_index}"></span></p></div>
+                    <div class="row"><p>舒适度指数: <span th:text="${weatherData.today.comfort_index}"></span></p></div>
+                    <div class="row"><p>洗车指数: <span th:text="${weatherData.today.wash_index}"></span></p></div>
+                    <div class="row"><p>旅游指数: <span th:text="${weatherData.today.travel_index}"></span></p></div>
+                    <div class="row"><p>晨练指数: <span th:text="${weatherData.today.exercise_index}"></span></p></div>
+
+
+
+
+
+
+                <h4>未来七天天气</h4>
+                <div  class="row">
+                    <div class="card border-info" th:each="future : ${weatherData.future}">
+                        <div class="card-body text-info">
+                            <p class="card-text" th:text="${future.date}"></p>
+                            <p class="card-text" th:text="${future.week}"></p>
+                            <p class="card-text" th:text="${future.temperature}"></p>
+                            <p class="card-text" th:text="${future.weather}"></p>
+                            <p class="card-text" th:text="${future.wind}"></p>
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

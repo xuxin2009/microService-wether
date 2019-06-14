@@ -18,6 +18,6 @@ public class WeatherDataSyncJob extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         //每隔一个小时去查询一次天气数据，并写入redis中
-        weatherDataService.getAllCityWeatherData();
+//        weatherDataService.getAllCityWeatherData();
     }
 }
